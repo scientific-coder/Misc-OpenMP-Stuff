@@ -1,9 +1,6 @@
 import functools
 import os
 
-
-#usage : export GOMP_CPU_AFFINITY=`python scattered_cpus.py`
-
 L2_sharing = map(functools.partial(int,base=16),os.popen('cat /sys/devices/system/cpu/cpu?/cache/index2/shared_cpu_map'));
 cpus= range(0,len(L2_sharing));
 L2_sharing= set(L2_sharing)
